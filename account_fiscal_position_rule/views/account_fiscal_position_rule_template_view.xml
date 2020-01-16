@@ -94,7 +94,6 @@
     <record id="action_account_fiscal_position_rule_template_form" model="ir.actions.act_window">
         <field name="name">Fiscal Position Rule Template</field>
         <field name="res_model">account.fiscal.position.rule.template</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
 
