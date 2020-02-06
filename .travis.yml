@@ -37,6 +37,9 @@ env:
   - VERSION="13.0" TESTS="0" LINT_CHECK="0" MAKEPOT="0"
 
 install:
+  #  FIXME: install oca/partner-contact/PR815 (migration of partner_identification)
+  - git clone --branch 13.0-MIG-partner_identification https://github.com/acsone/partner-contact.git PR815
+  - rm -rf partner_identification && cp -ar PR815/partner_identification .
   - git clone --depth=1 https://github.com/OCA/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
   - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
   - travis_install_nightly
