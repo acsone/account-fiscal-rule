@@ -1,0 +1,66 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* account_multi_vat
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-02-06 14:26+0000\n"
+"PO-Revision-Date: 2020-02-06 14:26+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: account_multi_vat
+#: model:ir.model,name:account_multi_vat.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: account_multi_vat
+#: model:ir.model,name:account_multi_vat.model_account_fiscal_position
+msgid "Fiscal Position"
+msgstr "Position fiscale"
+
+#. module: account_multi_vat
+#: model:ir.model.fields,field_description:account_multi_vat.field_res_partner__is_multi_vat
+#: model:ir.model.fields,field_description:account_multi_vat.field_res_users__is_multi_vat
+msgid "Is Multi Vat"
+msgstr ""
+
+#. module: account_multi_vat
+#: model:ir.model,name:account_multi_vat.model_res_partner_id_category
+msgid "Partner ID Category"
+msgstr "Catégorie d'identifiants"
+
+#. module: account_multi_vat
+#: model:ir.model,name:account_multi_vat.model_res_partner_id_number
+msgid "Partner ID Number"
+msgstr "Identifiants"
+
+#. module: account_multi_vat
+#: code:addons/account_multi_vat/models/res_partner_id_number.py:0
+#, python-format
+msgid "Please specify a tax administration in the 'Issued by' field."
+msgstr "Veuillez spécifier une administration fiscale dans le champ 'Délivré par'."
+
+#. module: account_multi_vat
+#: model:ir.model.fields,field_description:account_multi_vat.field_account_fiscal_position__vat_partner_id
+#: model:ir.model.fields,field_description:account_multi_vat.field_res_partner__is_tax_administration
+#: model:ir.model.fields,field_description:account_multi_vat.field_res_users__is_tax_administration
+msgid "Tax administration"
+msgstr "Administration fiscale"
+
+#. module: account_multi_vat
+#: code:addons/account_multi_vat/models/res_partner_id_number.py:0
+#, python-format
+msgid "The VAT number must be issued by a tax administration."
+msgstr "Le numéro de TVA doit être délivré par une administration fiscale."
+
+#. module: account_multi_vat
+#: model:res.partner.id_category,name:account_multi_vat.partner_id_category_vat
+msgid "VAT number"
+msgstr "Numéro de TVA"

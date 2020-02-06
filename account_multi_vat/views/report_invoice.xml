@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2020 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <template id="multi_vat_report_invoice_document" inherit_id="account.report_invoice_document">
+        <xpath expr="//t[@t-call='web.external_layout']/t[@t-set='address']/div[@t-if='o.partner_id.vat']" position="attributes">
+            <attribute name="t-if">o.partner_id.is_multi_vat</attribute>
+        </xpath>
+        <xpath expr="//t[@t-call='web.external_layout']/t[@t-set='address']/div[@t-if='o.partner_id.is_multi_vat']/span[@t-field='o.partner_id.vat']" position="attributes">
+            <attribute name="t-field"/>
+            <attribute name="t-esc">o.partner_id._get_vat_number_for_administration(o.fiscal_position_id.vat_partner_id)</attribute>
+        </xpath>
+    </template>
+
+</odoo>
