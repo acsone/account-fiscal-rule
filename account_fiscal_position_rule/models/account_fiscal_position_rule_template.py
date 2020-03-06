@@ -5,7 +5,7 @@
 #   @author: Guewen Baconnier
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class AccountFiscalPositionRuleTemplate(models.Model):
@@ -25,6 +25,12 @@ class AccountFiscalPositionRuleTemplate(models.Model):
         domain="[('country_id','=',from_country)]",
     )
 
+    to_invoice_country_group_id = fields.Many2one(
+        string="Invoice Country Group",
+        comodel_name="res.country.group",
+        ondelete="restrict",
+    )
+
     to_invoice_country = fields.Many2one(
         comodel_name="res.country", string="Country To"
     )
@@ -33,6 +39,12 @@ class AccountFiscalPositionRuleTemplate(models.Model):
         comodel_name="res.country.state",
         string="State To",
         domain="[('country_id','=',to_invoice_country)]",
+    )
+
+    to_shipping_country_group_id = fields.Many2one(
+        string="Destination Country Group",
+        comodel_name="res.country.group",
+        ondelete="restrict",
     )
 
     to_shipping_country = fields.Many2one(
@@ -87,3 +99,27 @@ class AccountFiscalPositionRuleTemplate(models.Model):
             " field VAT fill for using this fiscal position"
         ),
     )
+
+    @api.onchange("to_invoice_country_group_id")
+    def _onchange_to_invoice_country_group_id(self):
+        self.ensure_one()
+        self.to_invoice_country = False
+        if not self.to_invoice_country_group_id:
+            to_invoice_country_domain = []
+        else:
+            to_invoice_country_domain = [
+                ("country_group_ids", "in", self.to_invoice_country_group_id.id)
+            ]
+        return {"domain": {"to_invoice_country": to_invoice_country_domain}}
+
+    @api.onchange("to_shipping_country_group_id")
+    def _onchange_to_shipping_country_group_id(self):
+        self.ensure_one()
+        self.to_shipping_country = False
+        if not self.to_shipping_country_group_id:
+            to_shipping_country_domain = []
+        else:
+            to_shipping_country_domain = [
+                ("country_group_ids", "in", self.to_shipping_country_group_id.id)
+            ]
+        return {"domain": {"to_shipping_country": to_shipping_country_domain}}
