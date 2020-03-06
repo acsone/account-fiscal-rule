@@ -37,6 +37,9 @@ env:
   - VERSION="13.0" TESTS="0" LINT_CHECK="0" MAKEPOT="0"
 
 install:
+  #  FIXME:
+  - git clone --branch 13.0-mig_account_fiscal_position_rule_tbi https://github.com/acsone/account-fiscal-rule.git PR100
+  - rm -rf account_fiscal_position_rule && cp -ar PR100/account_fiscal_position_rule .
   - git clone --depth=1 https://github.com/OCA/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
   - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
   - travis_install_nightly
