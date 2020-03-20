@@ -17,10 +17,12 @@
                     </group>
                     <group string="Destination" name="destination">
                         <group string="Invoice" name="invoice">
+                            <field name="to_invoice_country_group_id" />
                             <field name="to_invoice_country" />
                             <field name="to_invoice_state" />
                         </group>
                         <group string="Shipping" name="shipping">
+                            <field name="to_shipping_country_group_id" />
                             <field name="to_shipping_country" />
                             <field name="to_shipping_state" />
                         </group>
@@ -51,8 +53,10 @@
                 <field name="name" />
                 <field name="from_country" />
                 <field name="from_state" />
+                <field name="to_invoice_country_group_id" />
                 <field name="to_invoice_country" />
                 <field name="to_invoice_state" />
+                <field name="to_shipping_country_group_id" />
                 <field name="to_shipping_country" />
                 <field name="to_shipping_state" />
                 <field name="vat_rule" />
